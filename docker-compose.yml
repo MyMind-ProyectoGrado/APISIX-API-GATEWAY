@@ -1,0 +1,23 @@
+services:
+  apisix:
+    build: .
+    container_name: apisix-mymind
+    ports:
+      - "9080:9080"
+      - "9443:9443"
+      - "9180:9180"
+    environment:
+      - APISIX_STAND_ALONE=true
+      - ENVIRONMENT=${ENVIRONMENT}
+      - BACK_SV_USERS_LOCAL=${BACK_SV_USERS_LOCAL}:${BACK_SV_USERS_PORT}
+      - BACK_SV_USERS_PROD=${BACK_SV_USERS_PROD}:${BACK_SV_USERS_PROD_PORT}
+    networks:
+      - default
+      - back-sv-users_default  # Se conecta a la red de usuarios si es local
+    volumes:
+      - ./apisix.yaml:/usr/local/apisix/conf/apisix.yaml
+      - ./config.yaml:/usr/local/apisix/conf/config.yaml
+
+networks:
+  back-sv-users_default:
+    external: true  # Usa la red existente de back-sv-users si está en local

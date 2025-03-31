@@ -1,0 +1,12 @@
+routes:
+  - id: "1"
+    uri: /audio/test
+    methods: ["GET"]
+    status: 1
+    priority: 0
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+#END
