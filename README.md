@@ -4,9 +4,11 @@ Este repositorio contiene la configuración de **Apache APISIX** para enrutar m�
 
 ## 📂 Estructura del Proyecto  
 APISIX-API-GATEWAY/ 
-│── config.yaml           # Configuración de APISIX
-│── setup_apisix.sh       # Script de instalación
-│── README.md            
+- apisix.yaml # Configuración de rutas y manejo de credenciales
+- config.yaml # Configuración general apisix
+- docker-compose.yml 
+- Dockerfile
+- entrypoint.sh # Aplicar variables de entorno a contenedor y aplicar configuración  
 
 ---
 
@@ -14,20 +16,12 @@ APISIX-API-GATEWAY/
 
 Antes de ejecutar el script, asegúrate de cumplir con los siguientes requisitos:  
 
-1️⃣ **Se debe ejecutar en un entorno linux**   
-2️⃣ **Apache APISIX debe estar instalado**   
-3️⃣ **Tener permisos de superusuario para ejecutar scripts de configuración.**
-4️⃣ **Incluir un archivo .env con las rutas correspondientes para que funcione.**
+1️⃣ **Incluir un archivo .env con las rutas correspondientes para que funcione.**
+2️⃣ **Para hacer peticiones localmente debe estar corriendo el servicio de usuarios**   
+3️⃣ **Tener instalado docker**
 
 ## Ejecución del Script (setup_apisix.sh)
 ```bash
-cd APISIX-API-GATEWAY
-sudo bash setup_apisix.sh
+ docker-compose up --build
 ```
 
-### Verificación
-Una vez que el script se ejecuta correctamente, puedes probar que el gateway funciona con el siguiente comando:
-
-```bash
-curl http://127.0.0.1:9080/users/
-```
