@@ -17,4 +17,462 @@ routes:
       nodes:
         "back-sv-users-backend-1:8000": 1
       pass_host: pass
+
+  - id: "2"
+    uri: /users/register
+    methods: ["POST"]
+    status: 1
+    priority: 1
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "3"
+    uri: /users/profile
+    methods: ["GET"]
+    status: 1
+    priority: 2
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "4"
+    uri: /users/name
+    methods: ["GET"]
+    status: 1
+    priority: 3
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "5"
+    uri: /users/update-name
+    methods: ["PATCH"]
+    status: 1
+    priority: 4
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "6"
+    uri: /users/email
+    methods: ["GET"]
+    status: 1
+    priority: 5
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "7"
+    uri: /users/update-email
+    methods: ["PATCH"]
+    status: 1
+    priority: 6
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "8"
+    uri: /users/notifications
+    methods: ["GET"]
+    status: 1
+    priority: 7
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "9"
+    uri: /users/update-notifications
+    methods: ["PATCH"]
+    status: 1
+    priority: 8
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "10"
+    uri: /users/profile-pic
+    methods: ["GET"]
+    status: 1
+    priority: 9
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "11"
+    uri: /users/profile-pic
+    methods: ["PATCH"]
+    status: 1
+    priority: 10
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "12"
+    uri: /users/privacy
+    methods: ["GET"]
+    status: 1
+    priority: 11
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "13"
+    uri: /users/privacy
+    methods: ["PATCH"]
+    status: 1
+    priority: 12
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "14"
+    uri: /users/delete
+    methods: ["DELETE"]
+    status: 1
+    priority: 13
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-users-backend-1:8000": 1
+      pass_host: pass
+
+  # --- Rutas de transcripciones --- #
+
+  - id: "15"
+    uri: /users/transcriptions
+    methods: ["GET"]
+    status: 1
+    priority: 14
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-models-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "16"
+    uri: /users/transcriptions/{transcription_id}
+    methods: ["GET"]
+    status: 1
+    priority: 15
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-models-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "17"
+    uri: /users/transcriptions/by-emotion/{emotion}
+    methods: ["GET"]
+    status: 1
+    priority: 16
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-models-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "18"
+    uri: /users/transcriptions/by-sentiment/{sentiment}
+    methods: ["GET"]
+    status: 1
+    priority: 17
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-models-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "19"
+    uri: /users/transcriptions/by-topic/{topic}
+    methods: ["GET"]
+    status: 1
+    priority: 18
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-models-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "20"
+    uri: /users/transcriptions/by-date/{date}
+    methods: ["GET"]
+    status: 1
+    priority: 19
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-models-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "21"
+    uri: /users/transcriptions/by-hour/
+    methods: ["GET"]
+    status: 1
+    priority: 20
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-models-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "22"
+    uri: /users/transcriptions/filter
+    methods: ["GET"]
+    status: 1
+    priority: 21
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-models-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "23"
+    uri: /users/transcriptions/add-transcription
+    methods: ["POST"]
+    status: 1
+    priority: 22
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-models-backend-1:8000": 1
+      pass_host: pass
+  - id: "24"
+    uri: /users/transcriptions/delete-transcription/{transcription_id}
+    methods: ["POST"]
+    status: 1
+    priority: 22
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-models-backend-1:8000": 1
+      pass_host: pass
+
+  - id: "25"
+    uri: /users/transcriptions/delete-all-transcriptions
+    methods: ["POST"]
+    status: 1
+    priority: 22
+    plugins:
+      openid-connect:
+        bearer_only: true
+        use_jwks: true
+        client_id: "${{AUTH0_CLIENT_ID}}"
+        client_secret: "${{AUTH0_CLIENT_SECRET}}"
+        discovery: "${{AUTH0_DISCOVERY_URL}}"
+        scope: openid profile
+    upstream:
+      type: roundrobin
+      nodes:
+        "back-sv-models-backend-1:8000": 1
+      pass_host: pass
+
 #END
