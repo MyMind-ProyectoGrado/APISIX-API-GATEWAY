@@ -17,7 +17,9 @@ APISIX-API-GATEWAY/
 Antes de ejecutar el script, asegúrate de cumplir con los siguientes requisitos:  
 
 1️⃣ **Incluir un archivo .env con las rutas correspondientes para que funcione.**
+
 2️⃣ **Para hacer peticiones localmente debe estar corriendo el servicio de usuarios**   
+
 3️⃣ **Tener instalado docker**
 
 ## Ejecución del Script (setup_apisix.sh)
